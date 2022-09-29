@@ -1,0 +1,21 @@
+resources:
+  - name: app-image
+    type: docker-image
+    source:
+      repository: killemx/my-app
+      username: killemx
+      password: 4Whomthebell
+
+  - name: my-app-repo
+    type: git
+    source:
+      uri: https://github.com/pinkyroman/sample.git
+      branch: main
+
+jobs:
+  - name: build-and-publish
+    plan:
+      - get: my-app-repo
+      - put: app-image
+        params:
+          build: my-app-repo/app

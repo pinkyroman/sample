@@ -19,3 +19,5 @@ jobs:
       - put: app-image
         params:
           build: my-app-repo/app
+          tag_file: my-app-repo/VERSION
+          tag_as_latest: true

@@ -18,6 +18,7 @@ jobs:
       - get: my-app-repo
       - put: app-image
         params:
-          build: my-app-repo/app
+          build: my-app-repo/app # 빌드 할 Dockerfile을 담고 있는 디렉터리에 대한 경로
+          dockerfile: my-app-repo/ci/dockerfiles/app/Dockerfile.prod # Dockefile이 빌드 디렉터리의 루트에 존재하지 않는 경우, Dokerfile에 대한 경로.
           tag_file: my-app-repo/VERSION
           tag_as_latest: true
